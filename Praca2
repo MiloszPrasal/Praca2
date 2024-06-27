@@ -1,0 +1,61 @@
+#include <iostream>
+using namespace std;
+
+int main() { 
+
+    int n;
+    int ocena1=0;
+    int ocena2=0;
+    int ocena3=0;
+    int sredniaOcena=0; 
+
+    cout << "Podaj liczbe studentow: " << endl;
+    cin >> n; 
+
+    if (n <= 0 || n >= 4) {
+        cout << "Niepoprawna liczba studentow." << endl;
+        return 1;
+    }
+
+    if (n >= 1) {
+        cout << "Podaj ocene dla ucznia numer 1: " << endl;
+        cin >> ocena1;
+    }
+
+    if (n >= 2) {
+        cout << "Podaj ocene dla ucznia numer 2: " << endl;
+        cin >> ocena2;
+    }
+
+    if (n == 3) {
+        cout << "Podaj ocene dla ucznia numer 3: " << endl;
+        cin >> ocena3;
+    }
+
+ 
+    int sumaOcen = ocena1 + ocena2 + ocena3;
+    sredniaOcena = sumaOcen / n; 
+
+    cout << "Ostateczna srednia ocena: " << sredniaOcena << endl;
+
+    int najwyzszaOcena = ocena1;
+    if (ocena2 > najwyzszaOcena) {
+        najwyzszaOcena = ocena2;
+    }
+    if (n == 3 && ocena3 > najwyzszaOcena) {
+        najwyzszaOcena = ocena3;
+    }
+    cout << "Najwyzsza ocena: " << najwyzszaOcena << endl;
+
+   
+    int najnizszaOcena = ocena1;
+    if (ocena2 < najnizszaOcena) {
+        najnizszaOcena = ocena2;
+    }
+    if (n == 3 && ocena3 < najnizszaOcena) {
+        najnizszaOcena = ocena3;
+    }
+    cout << "Najnizsza ocena: " << najnizszaOcena << endl;
+
+    return 0;
+}
