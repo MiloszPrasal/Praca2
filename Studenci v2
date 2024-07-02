@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+
+int main() { 
+    int n;
+    cout << "Podaj liczbe studentow: " << endl;;
+    cin >> n;
+
+    
+    if (n <= 0 || n >= 50) {
+        cout << "Niepoprawna liczba studentow." << endl;
+        return 1;
+    }
+
+    int ocena[n];
+    int totalocen = 0; 
+    int lowocena; 
+    int highocena;
+
+
+    for (int i = 0; i < n; ++i) {
+        cout << "Podaj ocene ucznia " << i + 1 << ": " << endl;
+        cin >> ocena[i];
+    
+        totalocen += ocena[i];
+
+
+        if (ocena[i] < lowocena) {
+            lowocena = ocena[i];
+        }
+
+        
+        if (ocena[i] > highocena) {
+            highocena = ocena[i];
+        }
+    }
+
+    
+    int x = totalocen / n;
+    cout << "Srednia ocen twoich studentow to: " << x << endl;
+
+    
+    cout << "Najnizsza ocena twoich studentow to: " << lowocena << endl;
+    cout << "Najwyzsza ocena twoich studentow to: " << highocena << endl;
+
+    return 0;
+}
