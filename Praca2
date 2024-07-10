@@ -1,61 +1,72 @@
 #include <iostream>
+#include <string>
+
 using namespace std;
 
-int main() { 
 
+
+string szukajksiazki(string tytuly[], string autorzy[], int rok[], int n, string szukanyTytul) 
+{
+    for(int i = 0; i < n; i++)
+    { 
+        if (tytuly[i] == szukanyTytul) 
+    {
+        return szukanyTytul;
+    }
+    }
+    return 0;
+}
+    
+
+
+ int main() 
+ {
     int n;
-    int ocena1=0;
-    int ocena2=0;
-    int ocena3=0;
-    int sredniaOcena=0; 
-
-    cout << "Podaj liczbe studentow: " << endl;
-    cin >> n; 
-
-    if (n <= 0 || n >= 4) {
-        cout << "Niepoprawna liczba studentow." << endl;
-        return 1;
-    }
-
-    if (n >= 1) {
-        cout << "Podaj ocene dla ucznia numer 1: " << endl;
-        cin >> ocena1;
-    }
-
-    if (n >= 2) {
-        cout << "Podaj ocene dla ucznia numer 2: " << endl;
-        cin >> ocena2;
-    }
-
-    if (n == 3) {
-        cout << "Podaj ocene dla ucznia numer 3: " << endl;
-        cin >> ocena3;
-    }
-
- 
-    int sumaOcen = ocena1 + ocena2 + ocena3;
-    sredniaOcena = sumaOcen / n; 
-
-    cout << "Ostateczna srednia ocena: " << sredniaOcena << endl;
-
-    int najwyzszaOcena = ocena1;
-    if (ocena2 > najwyzszaOcena) {
-        najwyzszaOcena = ocena2;
-    }
-    if (n == 3 && ocena3 > najwyzszaOcena) {
-        najwyzszaOcena = ocena3;
-    }
-    cout << "Najwyzsza ocena: " << najwyzszaOcena << endl;
+    int i;
+    cout << "Jak duzo ksiazek masz w swojej bibliotece: " << endl;
+    cin >> n;
+    
+    string tytul[n];
+    string autor[n];
+    int rok;
 
    
-    int najnizszaOcena = ocena1;
-    if (ocena2 < najnizszaOcena) {
-        najnizszaOcena = ocena2;
+
+  
+    for (int i = 0; i < n; ++i) {
+        cout << "Podaj tytul ksiazki " << i + 1 << ": " << endl;
+       
+        cin >> tytul[n];
+
+        cout << "Podaj autora ksiazki " << i + 1 << ": " << endl;
+
+        cin >> autor[n];
+
+        cout << "Podaj rok wydania ksiazki " << i + 1 << ":" << endl;
+
+        cin >> rok;
     }
-    if (n == 3 && ocena3 < najnizszaOcena) {
-        najnizszaOcena = ocena3;
+    
+    string szukanyTytul;
+    cout << "Podaj tytul ksiazki do wyszukania: ";
+    cin >> szukanyTytul;
+
+    string z = szukajksiazki(tytul, autor, rok, n, szukanyTytul);
+    if (z != -1) 
+    {
+        cout << "Znaleziono ksiazke: Tytul: " << tytul[n] << ", Autor: " << autor[n] << ", Rok wydania: " << rok << endl;
+    } 
+    else 
+    {
+        cout << "Nie znaleziono ksiazki o tytule: " << szukanyTytul << endl;
     }
-    cout << "Najnizsza ocena: " << najnizszaOcena << endl;
 
     return 0;
 }
+    cout << "Twoje wszystkie ksiazki:" << endl;
+    for (int i = 0; i < n; ++i) 
+    {
+        cout << "Tytul: " << tytul[n] << ", Autor: " << autor[n] << ", Rok produkcji: " << rok << endl;
+    }
+ 
+
